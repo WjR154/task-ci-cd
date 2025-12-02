@@ -21,7 +21,7 @@ jobs:
 
       - name: Exibir informações
         run: |
-          echo "O job disparou um evento: ${{ github.event_name }}"
-          echo "Rodando em um servidor: ${{ runner.os }}"
+          echo "O job disparou por um evento: ${{ github.event_name }}"
+          echo "Rodando no servidor: ${{ runner.os }}"
           echo "Branch: ${{ github.ref }}"
           echo "Repositório: ${{ github.repository }}"
