@@ -2,8 +2,8 @@ name: GitHub Actions - Push - Path Template
 run-name: Running - ${{ github.event_name }}
 on:
   push:
-#    paths:
-    #  - '**.txt'
+    paths:
+     - '**.cs'
 
 jobs:
   on-push:
