@@ -1,0 +1,18 @@
+name: Pipeline ao subir arquivos .txt 
+run-name: Running - ${{ github.event_name }}
+on:
+  push:
+   branches:
+     [main]
+     
+
+jobs:
+  on-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comentário
+        run: |
+      - run: echo "O job disparou um ${{ github.event_name }} evento"
+      - run: echo "Rodando em um ${{ runner.os }} servidor"
+      - run: echo "O nome da minha branch é ${{ github.ref }} do repositório ${{ github.repository }}"
+  
