@@ -1,18 +1,27 @@
-name: Pipeline ao subir arquivos .txt 
+name: Pipeline ao subir arquivos .txt
 run-name: Running - ${{ github.event_name }}
+
 on:
   push:
-   branches:
-     [main]
-     
+    branches:
+      - main
+    paths:
+      - '**/*.txt'
 
 jobs:
   on-push:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
       - name: Comentário
+        run: echo "Pipeline iniciado devido ao push de arquivo(s) .txt"
+
+      - name: Exibir informações
         run: |
-      - run: echo "O job disparou um ${{ github.event_name }} evento"
-      - run: echo "Rodando em um ${{ runner.os }} servidor"
-      - run: echo "O nome da minha branch é ${{ github.ref }} do repositório ${{ github.repository }}"
-  
+          echo "O job disparou um evento: ${{ github.event_ name }}"
+          echo "Rodando em um servidor: ${{ runner.os }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "Repositório: ${{ github.repository }}"
