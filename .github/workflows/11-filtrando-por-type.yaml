@@ -1,24 +1,27 @@
-name: Markdown checks arquivo 11
+name: Pipeline ao subir arquivos .txt
+run-name: Running - ${{ github.event_name }}
 
 on:
   push:
+    branches:
+      - main
     paths:
-      - '**/*.md'
-  pull_request:
-    paths:
-      - '**/*.md'
+      - '**/*.txt'
 
 jobs:
-  markdown-lint:
+  on-push:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout do código
+        uses: actions/checkout@v3
 
-      - name: Install markdownlint
-        run: npm install -g markdownlint-cli
+      - name: Comentário
+        run: echo "Pipeline iniciado devido ao push de arquivo(s) .txt"
 
-      - name: Run markdownlint on repo
+      - name: Exibir informações
         run: |
-          echo "Running markdownlint on all .md files..."
-          markdownlint "**/*.md" || exit 1
+          echo "O job disparou por um evento: ${{ github.event_name }}"
+          echo "Rodando no servidor: ${{ runner.os }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "Repositório: ${{ github.repository }}"
