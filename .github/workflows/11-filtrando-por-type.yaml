@@ -1,0 +1,24 @@
+name: Markdown checks arquivo 11
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+  pull_request:
+    paths:
+      - '**/*.md'
+
+jobs:
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
+
+      - name: Run markdownlint on repo
+        run: |
+          echo "Running markdownlint on all .md files..."
+          markdownlint "**/*.md" || exit 1
