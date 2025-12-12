@@ -3,7 +3,7 @@ run-name: Running - ${{ github.event_name }}
 
 on:
   schedule:
-    - cron: '21 21 12 12 *'   # roda às 21:21 UTC → 18:21 horário do Brasil
+    - cron: '21 21 12 12 *'   
 
 jobs:
   teste_schedule:
