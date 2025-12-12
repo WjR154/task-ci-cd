@@ -11,4 +11,4 @@ jobs:
     
     steps: 
       - name: Comentário
-        run: echo Trigger finalizado
+        run: echo "Trigger finalizado"
