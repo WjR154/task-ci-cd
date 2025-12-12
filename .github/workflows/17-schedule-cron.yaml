@@ -1,0 +1,13 @@
+name: Github Actions - Cron Job Template
+run-name: Running - ${{ github.event_name }}
+
+on:
+  schedule:
+    - cron: '21 21 12 12 *'   # roda às 21:21 UTC → 18:21 horário do Brasil
+
+jobs:
+  teste_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Passo executado somente no horário definido
+        run: echo "Este job executou às 18:21 de hoje!"
